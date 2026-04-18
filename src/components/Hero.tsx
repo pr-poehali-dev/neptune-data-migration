@@ -19,18 +19,21 @@ export default function Hero() {
         className="absolute inset-0 w-full h-full"
       >
         <img
-          src="/images/mountain-landscape.jpg"
-          alt="Mountain landscape"
+          src="https://cdn.poehali.dev/files/0d8c6a31-68e2-4a1a-bb94-b4d9ed40d811.jpeg"
+          alt="Обручальные кольца"
           className="w-full h-full object-cover"
         />
+        <div className="absolute inset-0 bg-black/30" />
       </motion.div>
 
-      <div className="relative z-10 text-center text-white">
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6">
-          ОТКРОЙ
+      <div className="relative z-10 text-center text-white px-6">
+        <p className="text-xs uppercase tracking-[0.4em] mb-6 opacity-80 font-light">Дорогие наши друзья и родные</p>
+        <h1 className="text-6xl md:text-8xl lg:text-9xl font-light tracking-wide mb-4" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+          Нина <span className="italic">&</span> Дмитрий
         </h1>
-        <p className="text-lg md:text-xl max-w-2xl mx-auto px-6 opacity-90">
-          Исследуй границы дизайна с иммерсивным параллакс-эффектом
+        <div className="w-16 h-px bg-white/60 mx-auto mb-6" />
+        <p className="text-base md:text-lg font-light tracking-widest opacity-90 uppercase">
+          6 июня 2026 · 13:40 · ул. Ленина, 94
         </p>
       </div>
     </div>
