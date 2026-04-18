@@ -105,7 +105,8 @@ export default function RSVP() {
               className="w-full border-b border-stone-300 bg-transparent py-2 text-stone-700 text-sm font-light outline-none focus:border-stone-600 transition-colors placeholder:text-stone-300"
             />
             <p className="text-xs text-stone-400 font-light mt-1.5">
-              На этот номер придёт SMS с подтверждением — тел. организатора: 8 989 708 12 39
+              После отправки формы на ваш номер придёт SMS с подтверждением.<br />
+              По вопросам звоните организатору: <span className="text-stone-600">8 989 708 12 39</span>
             </p>
           </div>
 
