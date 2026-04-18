@@ -1,7 +1,10 @@
 import { useState } from "react";
 
 export default function RSVP() {
-  const [name, setName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [middleName, setMiddleName] = useState("");
+  const [phone, setPhone] = useState("");
   const [attending, setAttending] = useState<"yes" | "no" | "">("");
   const [guests, setGuests] = useState("1");
   const [message, setMessage] = useState("");
@@ -14,7 +17,7 @@ export default function RSVP() {
       const res = await fetch("https://functions.poehali.dev/bb709fe3-9f2f-4bd2-8622-7d6bb5a817c6", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, attending, guests: Number(guests), message }),
+        body: JSON.stringify({ lastName, firstName, middleName, phone, attending, guests: Number(guests), message }),
       });
       if (!res.ok) throw new Error();
       setStatus("success");
@@ -50,16 +53,60 @@ export default function RSVP() {
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <div>
             <label className="block text-xs uppercase tracking-widest text-stone-400 mb-2 font-light">
-              Ваше имя
+              Фамилия
             </label>
             <input
               type="text"
               required
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Имя и фамилия"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              placeholder="Иванова"
               className="w-full border-b border-stone-300 bg-transparent py-2 text-stone-700 text-sm font-light outline-none focus:border-stone-600 transition-colors placeholder:text-stone-300"
             />
+          </div>
+
+          <div>
+            <label className="block text-xs uppercase tracking-widest text-stone-400 mb-2 font-light">
+              Имя
+            </label>
+            <input
+              type="text"
+              required
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              placeholder="Мария"
+              className="w-full border-b border-stone-300 bg-transparent py-2 text-stone-700 text-sm font-light outline-none focus:border-stone-600 transition-colors placeholder:text-stone-300"
+            />
+          </div>
+
+          <div>
+            <label className="block text-xs uppercase tracking-widest text-stone-400 mb-2 font-light">
+              Отчество
+            </label>
+            <input
+              type="text"
+              value={middleName}
+              onChange={(e) => setMiddleName(e.target.value)}
+              placeholder="Петровна"
+              className="w-full border-b border-stone-300 bg-transparent py-2 text-stone-700 text-sm font-light outline-none focus:border-stone-600 transition-colors placeholder:text-stone-300"
+            />
+          </div>
+
+          <div>
+            <label className="block text-xs uppercase tracking-widest text-stone-400 mb-2 font-light">
+              Номер телефона
+            </label>
+            <input
+              type="tel"
+              required
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              placeholder="+7 (___) ___-__-__"
+              className="w-full border-b border-stone-300 bg-transparent py-2 text-stone-700 text-sm font-light outline-none focus:border-stone-600 transition-colors placeholder:text-stone-300"
+            />
+            <p className="text-xs text-stone-400 font-light mt-1.5">
+              На этот номер придёт SMS с подтверждением — тел. организатора: 8 989 708 12 39
+            </p>
           </div>
 
           <div>
